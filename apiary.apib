@@ -1,80 +1,128 @@
 FORMAT: 1A
-HOST: http://polls.apiblueprint.org/
+
 
 # MajesticThai
 
-Polls is a simple API allowing consumers to view polls and vote in them.
+Majestic Thai is a high-tech Thai restuarant with its own API. 
 
-## Questions Collection [/questions]
+## Dishes Collection [/dishes]
 
-### List All Questions [GET]
+### List Dishes [GET]
 
 + Response 200 (application/json)
 
         [
-            {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 2048
-                    }, {
-                        "choice": "Python",
-                        "votes": 1024
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 512
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 256
-                    }
-                ]
-            }
+           {
+           "_id":"1",
+           "name":"Drunk Beef",
+           "price":11.5,
+           "description":"sauteed beef and basil with Thai chilis in a spicy sauce"
+           }, {
+           "_id":"2",
+           "name":"Phad Phrik Pow",
+           "price":11,
+           "description":"stir-fried meat in coconut milk cooked in smoked chili sauce"
+           }, {
+           "_id":"3",
+           "name":"Panang Curry",
+           "price":12,
+           "description":"panang curry cooked in coconut milk with bamboo shoots"
+           }, {
+           "_id":"4",
+           "name":"Chicken Satay",
+           "price":5,
+           "description":"our tender, seasoned chicken on pork skewers"
+           }
         ]
+        
+## Dish [/dishes/{id}]
 
-### Create a New Question [POST]
++ Parameters 
+    + id (number) - ID of the dish in the form of an integer
 
-You may create your own question using this action. It takes a JSON
-object containing a question and a collection of answers in the
-form of choices.
+### List Dish [GET]
 
-+ Request (application/json)
++ Response 200 (application/json)
 
         {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
+        "_id":"1",
+        "name":"Drunk Beef",
+        "price":11.5,
+        "description":"sauteed beef and basil with Thai chilis in a spicy sauce"
         }
 
-+ Response 201 (application/json)
+## Order Collection [/orders]
 
-    + Headers
+### List Orders [GET]
 
-            Location: /questions/2
++ Response 200 (application/json)
 
-    + Body
-
+        [
+        {
+        "order_id": "1",
+        "username": "elbaumpj",
+        "time": "12:30",
+        "total": 22.5,
+        "items": [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2015-08-05T08:40:51.620Z",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "votes": 0
-                    }
-                ]
-            }
+           "_id":"1",
+           "name":"Drunk Beef",
+           "price":11.5,
+           "description":"sauteed beef and basil with Thai chilis in a spicy sauce"
+           }, {
+           "_id":"2",
+           "name":"Phad Phrik Pow",
+           "price":11,
+           "description":"stir-fried meat in coconut milk cooked in smoked chili sauce"
+           }
+         ]
+        },
+        {
+        "order_id": "2",
+        "username": "elbaumpj",
+        "time": "15:30",
+        "total": 17,
+        "items": [
+            {
+           "_id":"3",
+           "name":"Panang Curry",
+           "price":12,
+           "description":"panang curry cooked in coconut milk with bamboo shoots"
+           }, {
+           "_id":"4",
+           "name":"Chicken Satay",
+           "price":5,
+           "description":"our tender, seasoned chicken on pork skewers"
+           }
+         ]
+        }
+        ]
+      
+## Order [/orders/{id}]
+
++ Parameters 
+    + id (number) - ID of the order in the form of an integer
+
+### List Order [GET]
+
++ Response 200 (application/json)
+    
+        {
+        "order_id": "1",
+        "username": "elbaumpj",
+        "time": "12:30",
+        "total": 22.5,
+        "items": [
+            {
+           "_id":"1",
+           "name":"Drunk Beef",
+           "price":11.5,
+           "description":"sauteed beef and basil with Thai chilis in a spicy sauce"
+           }, {
+           "_id":"2",
+           "name":"Phad Phrik Pow",
+           "price":11,
+           "description":"stir-fried meat in coconut milk cooked in smoked chili sauce"
+           }
+        ]
+        }
