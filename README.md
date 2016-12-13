@@ -1,2 +1,2 @@
 # majestic-thai-api
-API with Apiary.io
+* I completed this project during Week 8 at The Iron Yard. The assignment's was to create an API using Apiary.io, which allows users to create their own API using markdown. This assignment's objectives were to break down an API into resources/endpoints, document how those endpoints will be used to fetch/update data, and provide a working prototype of your API based on documentation. You can visit  http://docs.majesticthai30.apiary.io/# if you'd like to see my API. 
